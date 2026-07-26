@@ -1,0 +1,17 @@
+# people = [
+#     (25, "Олег"),
+#     (20, "Марія"),
+#     (25, "Анна"),
+#     (20, "Богдан"),
+# ]
+
+# sorted_people = sorted(people)
+
+# for age, name in sorted_people:
+#     print(age, name)
+
+
+import random
+
+print(random.randint(1, 10))
+print(random.choice(["red", "green", "blue"]))

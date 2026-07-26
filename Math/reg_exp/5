@@ -1,0 +1,9 @@
+py -m venv .venv
+.venv\Scripts\Activate.ps1
+
+Alexander Abramovich
+3:26 PM
+source .venv/bin/activate
+python -c "import sys; print(sys.executable)"
+
+python -c "print('Hello, World!')"

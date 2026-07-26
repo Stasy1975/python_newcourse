@@ -1,0 +1,44 @@
+from datetime import datetime
+
+
+DATE_FORMAT = "%d.%m.%Y"
+
+WEEKDAYS = [
+    "Понеділок",
+    "Вівторок",
+    "Середа",
+    "Четвер",
+    "П'ятниця",
+    "Субота",
+    "Неділя",
+]
+
+
+def sort_dates_by_weekday(date_strings: list[str]) -> list[datetime]:
+    parsed_dates = []
+
+    for date_string in date_strings:
+        parsed_date = datetime.strptime(date_string, DATE_FORMAT)
+        parsed_dates.append(parsed_date)
+
+    return sorted(
+        parsed_dates,
+        key=lambda item: (item.weekday(), item)
+    )
+
+
+dates = [
+    "27.07.2026",
+    "25.07.2026",
+    "26.07.2026",
+    "29.07.2026",
+    "28.07.2026",
+]
+
+sorted_dates = sort_dates_by_weekday(dates)
+
+for current_date in sorted_dates:
+    weekday_name = WEEKDAYS[current_date.weekday()]
+    formatted = current_date.strftime(DATE_FORMAT)
+
+    print(f"{weekday_name} - {formatted}")

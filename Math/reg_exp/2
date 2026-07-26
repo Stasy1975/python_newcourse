@@ -1,0 +1,17 @@
+def replace_emojis(text: str) -> str:
+    replacements = {
+        "🙂": ":)",
+        "😢": ":(",
+        "😂": "XD",
+        "❤️": "<3",
+    }
+
+    for emoji, ascii_emoji in replacements.items():
+        text = text.replace(emoji, ascii_emoji)
+
+    return text
+
+
+message = "Привіт 🙂 Сьогодні було смішно 😂"
+
+print(replace_emojis(message))

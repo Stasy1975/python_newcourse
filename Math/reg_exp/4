@@ -1,0 +1,24 @@
+symbol = "A"
+
+code = ord(symbol)
+
+print(code)
+print(chr(code))
+
+emoji = "🙂"
+
+code_point = ord(emoji)
+
+print("Код Unicode:", code_point)
+print("Шістнадцятковий код:", hex(code_point))
+print("Назад у символ:", chr(code_point))
+
+
+text = "Привіт 🙂"
+
+encoded = text.encode("utf-8")
+decoded = encoded.decode("utf-8")
+
+print("Текст:", text)
+print("Байти:", encoded)
+print("Відновлений текст:", decoded)

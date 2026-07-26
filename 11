@@ -1,0 +1,85 @@
+# from datetime import datetime
+
+
+# DATE_FORMAT = "%d.%m.%Y %H:%M"
+
+# date_text = "25.07.2026 18:30"
+
+# parsed_date = datetime.strptime(date_text, DATE_FORMAT)
+
+# print("Рядок:", date_text)
+# print("Об'єкт datetime:", parsed_date)
+# print("Тип:", type(parsed_date))
+
+# formatted_date = parsed_date.strftime("%Y-%m-%d %H:%M")
+
+# print("Новий формат:", formatted_date)
+
+
+# %d - день місяця
+# %m - номер місяця
+# %Y - рік із чотирьох цифр
+# %y - рік із двох цифр
+# %H - години у 24-годинному форматі
+# %M - хвилини
+# %S - секунди
+# %A - повна назва дня тижня
+# %B - повна назва місяця
+
+
+from datetime import datetime
+
+now = datetime.now()
+
+print(now.strftime("%d.%m.%Y"))
+print(now.strftime("%H:%M:%S"))
+print(now.strftime("%A"))
+print(now.strftime("%B"))
+
+
+from datetime import datetime
+
+start = datetime(2026, 7, 25, 10, 0)
+end = datetime(2026, 7, 28, 16, 30)
+
+difference = end - start
+
+print("Повна різниця:", difference)
+print("Повні дні:", difference.days)
+print("Секунди без урахування повних днів:", difference.seconds)
+print("Усього секунд:", difference.total_seconds())
+print("Усього годин:", difference.total_seconds() / 3600)
+
+
+
+from datetime import datetime
+
+
+def calculate_difference(
+    first_date: str,
+    second_date: str,
+    date_format: str = "%d.%m.%Y %H:%M"
+) -> float:
+    first = datetime.strptime(first_date, date_format)
+    second = datetime.strptime(second_date, date_format)
+
+    difference = second - first
+
+    return difference.total_seconds() / 3600
+
+
+hours = calculate_difference(
+    "25.07.2026 10:00",
+    "28.07.2026 16:30"
+)
+
+print(f"Різниця становить {hours} годин")
+
+
+
+from datetime import datetime
+
+
+current_date = datetime(2026, 7, 25)
+
+print(current_date.weekday())

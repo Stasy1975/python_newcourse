@@ -1,0 +1,29 @@
+import math
+import sys
+
+
+def circle_area(radius: float) -> float:
+    if radius < 0:
+        raise ValueError("Радіус не може бути від'ємним")
+
+    return math.pi * radius ** 2
+
+
+def main() -> None:
+    if len(sys.argv) != 2:
+        print("Використання: python circle_cli.py <радіус>")
+        return
+
+    try:
+        radius = float(sys.argv[1])
+        area = circle_area(radius)
+
+        print(f"Радіус: {radius}")
+        print(f"Площа: {area:.2f}")
+
+    except ValueError as error:
+        print("Помилка:", error)
+
+
+if __name__ == "__main__":
+    main()
