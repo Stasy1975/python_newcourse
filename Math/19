@@ -1,0 +1,8 @@
+from datetime import datetime
+
+current_date = datetime.now()
+
+timestamp = current_date.timestamp()
+
+print(current_date)
+print(timestamp)

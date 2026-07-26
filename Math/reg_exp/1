@@ -1,0 +1,51 @@
+import re
+
+text = "Мої числа: 12, 45 і 78"
+
+result = re.search(r"\d+", text)
+
+if result:
+    print("Знайдено:", result.group())
+    print("Позиція:", result.start())
+else:
+    print("Нічого не знайдено")
+
+
+    import re
+
+text = "Harry Potter"
+
+numbers = re.findall(r"Harry", text)
+
+print(len(numbers))
+
+
+import re
+
+
+def find_hashtags(text: str) -> list[str]:
+    pattern = r"(?<!\w)#([\w]+)"
+
+    return re.findall(pattern, text)
+
+
+sentence = """
+Вивчаємо #Python, працюємо з #regexp
+і пишемо #домашнє_завдання
+"""
+
+hashtags = find_hashtags(sentence)
+
+print(hashtags)
+
+
+
+
+import re
+
+
+def find_hashtags(text: str) -> list[str]:
+    return re.findall(r"(?<!\w)#[\w]+", text)
+
+
+print(find_hashtags("Люблю #Python та #програмування"))

@@ -1,0 +1,12 @@
+from colorama import Back, Fore, Style, init
+
+
+init(autoreset=True)
+
+print(Fore.GREEN + "Операція виконана успішно")
+print(Fore.YELLOW + "Попередження")
+print(Fore.RED + "Сталася помилка")
+print(Back.BLUE + Fore.WHITE + "Інформаційне повідомлення")
+print(Style.BRIGHT + "Яскравий текст")
+
+# python -m pip freeze > requirements.txtpython -m pip install colorama

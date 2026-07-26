@@ -1,0 +1,20 @@
+import random
+import string
+
+
+def generate_password(length: int = 12) -> str:
+    if length <= 0:
+        raise ValueError("Довжина повинна бути більшою за нуль")
+
+    alphabet = string.ascii_letters + string.digits
+
+    password = ""
+
+    for _ in range(length):
+        password += random.choice(alphabet)
+
+    return password
+
+
+print(generate_password())
+print(generate_password(20))

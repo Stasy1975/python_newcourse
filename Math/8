@@ -1,0 +1,38 @@
+import random
+import string
+
+
+def generate_password(length: int = 12) -> str:
+    if length < 4:
+        raise ValueError("Довжина пароля повинна бути не меншою за 4")
+
+    characters = [
+        random.choice(string.ascii_lowercase),
+        random.choice(string.ascii_uppercase),
+        random.choice(string.digits),
+        random.choice(string.punctuation),
+    ]
+
+    all_characters = (
+        string.ascii_lowercase
+        + string.ascii_uppercase
+        + string.digits
+        + string.punctuation
+    )
+
+    for _ in range(length - 4):
+        characters.append(random.choice(all_characters))
+
+    random.shuffle(characters)
+
+    return "".join(characters)
+
+
+try:
+    length = int(input("Довжина пароля: "))
+    password = generate_password(length)
+
+    print("Згенерований пароль:", password)
+
+except ValueError as error:
+    print("Помилка:", error)

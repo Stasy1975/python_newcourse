@@ -1,0 +1,34 @@
+import argparse
+import math
+
+
+def circle_area(radius: float) -> float:
+    if radius < 0:
+        raise ValueError("Радіус не може бути від'ємним")
+
+    return math.pi * radius ** 2
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Програма для обчислення площі кола"
+    )
+
+    parser.add_argument(
+        "radius",
+        type=float,
+        help="Радіус кола"
+    )
+
+    args = parser.parse_args()
+
+    try:
+        area = circle_area(args.radius)
+        print(f"Площа кола: {area:.2f}")
+
+    except ValueError as error:
+        print("Помилка:", error)
+
+
+if __name__ == "__main__":
+    main()
