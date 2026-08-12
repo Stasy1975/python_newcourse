@@ -1,8 +1,8 @@
 from datetime import datetime, date, timedelta
 
 users = [
-    {"name": "Bill Gates", "birthday": "1955.3.25"},
-    {"name": "Steve Jobs", "birthday": "1955.3.21"},
+    {"name": "Bill Gates", "birthday": "1955.8.15"},
+    {"name": "Steve Jobs", "birthday": "1955.8.12"},
     {"name": "Jinny Lee", "birthday": "1956.3.22"},
     {"name": "John Doe", "birthday": "1985.01.23"},
     {"name": "Jane Smith", "birthday": "1990.01.27"}
@@ -54,9 +54,15 @@ def get_upcoming_birthdays(users, days=7):
          
         if 0 <= (birthday_this_year - today).days <= days:
         
-             birthday_this_year = adjust_for_weekend(
-                birthday_this_year)
+            birthday_this_year = adjust_for_weekend(birthday_this_year)
             
-        congratulation_date_str = date_to_string(birthday_this_year)
-        upcoming_birthdays.append({"name": user["name"], "congratulation_date": congratulation_date_str})
+            congratulation_date_str = date_to_string(birthday_this_year)
+            upcoming_birthdays.append({"name": user["name"], "congratulation_date": congratulation_date_str})
     return upcoming_birthdays
+
+
+prepared_users = prepare_user_list(users)
+
+result = get_upcoming_birthdays(prepared_users, 7)
+
+print(result)
