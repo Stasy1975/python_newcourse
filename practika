@@ -1,16 +1,10 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
-now = datetime.now()
+now = datetime.now().astimezone()
 
 print(now)
 print(type(now))
-
-
-from datetime import datetime
-
-
-now = datetime.now()
 
 print("Рік:", now.year)
 print("Місяць:", now.month)
@@ -18,3 +12,71 @@ print("День:", now.day)
 print("Година:", now.hour)
 print("Хвилина:", now.minute)
 print("Секунда:", now.second)
+print("Мікросекунда:", now.microsecond)
+print("День тижня:", now.weekday())
+print("Дата:", now.date())
+print("Час:", now.time())
+print("Таймзона:", now.tzinfo)
+
+future_date = now + timedelta(days=10)  # Додаємо 10 днів до поточної дати
+print(future_date)
+
+seventh_day_2020 = datetime(year=2020, month=1, day=7, hour=14)
+four_weeks_interval = timedelta(weeks=4)
+
+print(seventh_day_2020 + four_weeks_interval)  # 2020-02-04 14:00:00
+print(seventh_day_2020 - four_weeks_interval)  # 2019-12-10 14:00:00
+
+print(now.toordinal())  # Повертає порядковий номер дати
+
+napoleon_burns_moscow = datetime(year=1812, month=9, day=14)
+days_since = now.toordinal() - napoleon_burns_moscow.toordinal()
+print(days_since)
+
+timestamp = datetime.timestamp(now)
+print(timestamp)  
+
+dt_object = datetime.fromtimestamp(timestamp)
+print(dt_object)
+
+# print(printer.print_summary(now))
+# print(printer.format_value(now))
+
+print(now.strftime("%Y-%m-%d %H:%M:%S, %A, %B %d, %Y"))  # Форматування дати та часу
+
+date_string = "2023.03.14"
+print(datetime.strptime(date_string, "%Y.%m.%d"))  # Перетворення рядка у datetime
+
+print(now.isoformat())  # Повертає дату у форматі ISO 8601
+
+print(now.isocalendar())  # Повертає кортеж (рік, номер тижня, день тижня)
+
+
+# from datetime import datetime, timezone
+
+# local_now = datetime.now()
+# utc_now = datetime.now(timezone.utc)
+
+# print(local_now)
+# print(utc_now)  # Виведе поточний час в UTC
+
+
+from datetime import datetime, timezone, timedelta
+
+# Припустимо, місцевий час належить до часової зони UTC+2
+local_timezone = timezone(timedelta(hours=2))
+local_time = datetime(year=2023, month=3, day=14, hour=12, minute=30, second=0, tzinfo=local_timezone)
+
+# Конвертація локального часу в UTC
+utc_time = local_time.astimezone(timezone.utc)
+print(utc_time)  # Виведе час в UTC
+
+
+from datetime import datetime
+
+now = datetime.now()
+local_now = now.astimezone()
+
+print(now)
+print(local_now)
+

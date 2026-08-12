@@ -1,0 +1,25 @@
+import math
+
+x = 3.7
+
+ceil_result = math.ceil(x)  # Округлення вгору
+floor_result = math.floor(x)  # Округлення вниз
+trunc_result = math.trunc(x)  # Відсікання дробової частини
+
+print(ceil_result, floor_result, trunc_result)
+
+
+uuu = math.log(8, 2)  # Логарифм числа 8 за основою 2
+print(uuu)
+
+yyy=math.gcd(36, 18)  # Знаходження найбільшого спільного дільника
+print(yyy)
+
+angle = math.radians(90)  # Перетворення градусів у радіани
+sine_value = math.sin(angle)  # Обчислення синуса кута  
+print(sine_value)  # Виведе 1.0, оскільки sin(90°) = 1
+print(angle)  # Виведе 1.5707963267948966, що є радіанним еквівалентом 90 градусів
+
+
+print(0.1 + 0.2 == 0.3)
+print(0.1 + 0.2)
